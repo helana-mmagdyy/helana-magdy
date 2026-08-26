@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+  PhishGuard — Unified threat detection
+</title>
+
+<link
+  rel="stylesheet"
+  href="/CSS/style.css"
+>
+
+<link
+  rel="preconnect"
+  href="https://fonts.googleapis.com"
+>
+
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin
+>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap"
+  rel="stylesheet"
+>
+
+</head>
+
+
+<body>
+
+
+<div
+  class="bg-grid"
+  aria-hidden="true"
+></div>
+
+
+<!-- ============ NAV ============ -->
+
+<header class="nav">
+
+  <div class="nav-inner">
+
+    <div class="brand">
+
+      <svg
+        class="brand-mark"
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
+
+        <path
+          d="M12 2L4 5v6c0 5.2 3.4 9.9 8 11 4.6-1.1 8-5.8 8-11V5l-8-3z"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linejoin="round"
+        />
+
+        <path
+          d="M9 12l2 2 4-4"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+
+      </svg>
+
+      <span>PhishGuard</span>
+
+    </div>
+
+
+    <nav class="nav-links">
+
+      <a href="#scanner">
+        Scanner
+      </a>
+
+      <a href="#how-it-works">
+        How it works
+      </a>
+
+      <a href="#models">
+        Models
+      </a>
+
+    </nav>
+
+
+    <button
+      class="btn btn-ghost nav-cta"
+    >
+      Sign in
+    </button>
+
+  </div>
+
+</header>
+
+
+<main>
+
+
+<!-- ============ HERO ============ -->
+
+<section class="hero">
+
+  <div class="hero-copy">
+
+    <span class="eyebrow">
+
+      <span class="dot"></span>
+
+      Real-time threat detection
+
+    </span>
+
+
+    <h1>
+      See the threat<br>
+      before you click it.
+    </h1>
+
+
+    <p class="hero-sub">
+
+      PhishGuard screens links and email
+      content against dedicated AI models
+      trained to catch phishing and spam.
+
+    </p>
+
+
+    <div class="hero-actions">
+
+      <a
+        href="#scanner"
+        class="btn btn-primary"
+      >
+        Run a scan
+        <span aria-hidden="true">
+          →
+        </span>
+      </a>
+
+
+      <a
+        href="#how-it-works"
+        class="btn btn-ghost"
+      >
+        How it works
+      </a>
+
+    </div>
+
+
+    <div class="hero-stats">
+
+      <div>
+
+        <strong>
+          2
+        </strong>
+
+        <span>
+          detection models
+        </span>
+
+      </div>
+
+
+      <div>
+
+        <strong>
+          &lt;1s
+        </strong>
+
+        <span>
+          avg. response
+        </span>
+
+      </div>
+
+
+      <div>
+
+        <strong>
+          Local
+        </strong>
+
+        <span>
+          models, no third-party API
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div
+    class="hero-panel"
+    aria-hidden="true"
+  >
+
+    <div class="panel-head">
+
+      <span class="led led-red"></span>
+
+      <span class="led led-amber"></span>
+
+      <span class="led led-green"></span>
+
+      <span class="panel-title">
+        scan_log.live
+      </span>
+
+    </div>
+
+
+    <div
+      class="panel-body"
+      id="heroLog"
+    >
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ============ SCANNER ============ -->
+
+<section
+  class="scanner-section"
+  id="scanner"
+>
+
+  <div class="section-head">
+
+    <span class="eyebrow">
+      Scanner
+    </span>
+
+    <h2>
+      One console, two threats
+    </h2>
+
+    <p>
+      Switch modes, submit, get a verdict —
+      each mode runs its own dedicated model.
+    </p>
+
+  </div>
+
+
+  <div class="scanner-card">
+
+
+    <div
+      class="tabs"
+      role="tablist"
+      aria-label="Detection mode"
+    >
+
+
+      <!-- LINK -->
+
+      <button
+        class="tab is-active"
+        role="tab"
+        aria-selected="true"
+        data-mode="link"
+      >
+
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
+
+          <path
+            d="M9 15l6-6M10 7l1-1a4 4 0 015.7 5.7l-1 1M14 17l-1 1A4 4 0 017.3 12.3l1-1"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+          />
+
+        </svg>
+
+        Link
+
+      </button>
+
+
+      <!-- EMAIL -->
+
+      <button
+        class="tab"
+        role="tab"
+        aria-selected="false"
+        data-mode="email"
+      >
+
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
+
+          <rect
+            x="3"
+            y="5"
+            width="18"
+            height="14"
+            rx="2"
+            stroke="currentColor"
+            stroke-width="1.7"
+          />
+
+          <path
+            d="M3 7l9 6 9-6"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+          />
+
+        </svg>
+
+        Email
+
+      </button>
+
+
+    </div>
+
+
+    <div class="tab-panels">
+
+
+      <!-- LINK PANEL -->
+
+      <div
+        class="tab-panel is-active"
+        data-panel="link"
+      >
+
+        <label for="linkInput">
+          Paste a URL to check for phishing
+        </label>
+
+
+        <div class="input-row">
+
+          <input
+            type="text"
+            id="linkInput"
+            placeholder="https://example.com/reset-password"
+            autocomplete="off"
+          >
+
+
+          <button
+            class="btn btn-primary"
+            id="scanLinkBtn"
+          >
+            Scan link
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- EMAIL PANEL -->
+
+      <div
+        class="tab-panel"
+        data-panel="email"
+      >
+
+        <label for="emailInput">
+          Paste the email content to classify
+        </label>
+
+
+        <textarea
+          id="emailInput"
+          rows="5"
+          placeholder="Subject: You've won a prize...&#10;&#10;Dear winner, claim your reward within 24 hours..."
+        ></textarea>
+
+
+        <button
+          class="btn btn-primary"
+          id="scanEmailBtn"
+        >
+          Classify email
+        </button>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+  <!-- RESULT -->
+
+  <div
+    class="result"
+    id="result"
+    hidden
+  >
+
+    <div class="result-verdict">
+
+      <span
+        class="result-icon"
+        id="resultIcon"
+      ></span>
+
+      <div>
+
+        <p class="result-label">
+          Verdict
+        </p>
+
+        <p
+          class="result-value"
+          id="resultVerdict"
+        >
+          —
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="result-metric">
+
+      <p class="result-label">
+        Confidence
+      </p>
+
+      <p
+        class="result-value"
+        id="resultConfidence"
+      >
+        —
+      </p>
+
+    </div>
+
+
+    <div class="result-metric">
+
+      <p class="result-label">
+        Model
+      </p>
+
+      <p
+        class="result-value result-mono"
+        id="resultModel"
+      >
+        —
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- RECENT -->
+
+  <div class="recent">
+
+    <p class="recent-title">
+      Recent scans
+    </p>
+
+
+    <div
+      class="recent-list"
+      id="recentList"
+    >
+
+      <div class="recent-row">
+
+        <span class="recent-target">
+
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+
+            <path
+              d="M9 15l6-6M10 7l1-1a4 4 0 015.7 5.7l-1 1M14 17l-1 1A4 4 0 017.3 12.3l1-1"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+            />
+
+          </svg>
+
+          secure-paypal-login.net
+
+        </span>
+
+        <span class="tag tag-danger">
+          Phishing
+        </span>
+
+      </div>
+
+
+      <div class="recent-row">
+
+        <span class="recent-target">
+
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+
+            <rect
+              x="3"
+              y="5"
+              width="18"
+              height="14"
+              rx="2"
+              stroke="currentColor"
+              stroke-width="1.7"
+            />
+
+            <path
+              d="M3 7l9 6 9-6"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+            />
+
+          </svg>
+
+          "You've won a prize..."
+
+        </span>
+
+        <span class="tag tag-danger">
+          Spam
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ============ HOW IT WORKS ============ -->
+
+<section
+  class="how"
+  id="how-it-works"
+>
+
+  <div class="section-head">
+
+    <span class="eyebrow">
+      Pipeline
+    </span>
+
+    <h2>
+      What happens on submit
+    </h2>
+
+  </div>
+
+
+  <div class="how-grid">
+
+
+    <div class="how-step">
+
+      <span class="how-index">
+        01
+      </span>
+
+      <h3>
+        Input received
+      </h3>
+
+      <p>
+        Your link or email text is sent
+        to the matching endpoint.
+      </p>
+
+    </div>
+
+
+    <div class="how-step">
+
+      <span class="how-index">
+        02
+      </span>
+
+      <h3>
+        Feature extraction
+      </h3>
+
+      <p>
+        URLs and email text are cleaned
+        and converted into character-level
+        sequences.
+      </p>
+
+    </div>
+
+
+    <div class="how-step">
+
+      <span class="how-index">
+        03
+      </span>
+
+      <h3>
+        Model inference
+      </h3>
+
+      <p>
+        A dedicated LSTM model scores
+        the input and returns a verdict.
+      </p>
+
+    </div>
+
+
+    <div class="how-step">
+
+      <span class="how-index">
+        04
+      </span>
+
+      <h3>
+        Verdict returned
+      </h3>
+
+      <p>
+        You get a clear safe / risky call,
+        confidence score, and model name.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- ============ MODELS ============ -->
+
+<section
+  class="models"
+  id="models"
+>
+
+  <div class="section-head">
+
+    <span class="eyebrow">
+      Under the hood
+    </span>
+
+    <h2>
+      Two models, one console
+    </h2>
+
+  </div>
+
+
+  <div class="models-grid">
+
+
+    <!-- URL MODEL -->
+
+    <div class="model-card">
+
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
+
+        <path
+          d="M9 15l6-6M10 7l1-1a4 4 0 015.7 5.7l-1 1M14 17l-1 1A4 4 0 017.3 12.3l1-1"
+          stroke="currentColor"
+          stroke-width="1.7"
+          stroke-linecap="round"
+        />
+
+      </svg>
+
+
+      <h3>
+        Phishing link detection
+      </h3>
+
+
+      <p class="model-type">
+        LSTM · sequence model
+      </p>
+
+
+      <p>
+        Reads a URL character-by-character
+        to detect phishing patterns,
+        suspicious domains, and structural
+        red flags.
+      </p>
+
+    </div>
+
+
+    <!-- EMAIL MODEL -->
+
+    <div class="model-card">
+
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
+
+        <rect
+          x="3"
+          y="5"
+          width="18"
+          height="14"
+          rx="2"
+          stroke="currentColor"
+          stroke-width="1.7"
+        />
+
+        <path
+          d="M3 7l9 6 9-6"
+          stroke="currentColor"
+          stroke-width="1.7"
+          stroke-linecap="round"
+        />
+
+      </svg>
+
+
+      <h3>
+        Spam email classification
+      </h3>
+
+
+      <p class="model-type">
+        Bidirectional LSTM
+      </p>
+
+
+      <p>
+        Reads cleaned email content in both
+        directions to identify spam patterns,
+        suspicious language, and message structure.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+</main>
+
+
+<!-- ============ FOOTER ============ -->
+
+<footer class="footer">
+
+  <div class="footer-inner">
+
+    <div class="brand brand-sm">
+
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
+
+        <path
+          d="M12 2L4 5v6c0 5.2 3.4 9.9 8 11 4.6-1.1 8-5.8 8-11V5l-8-3z"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linejoin="round"
+        />
+
+      </svg>
+
+      <span>
+        PhishGuard
+      </span>
+
+    </div>
+
+
+    <p>
+      Built with FastAPI, Docker,
+      and two purpose-trained models.
+    </p>
+
+  </div>
+
+</footer>
+
+
+<script src="../JS/script.js"></script>
+
+</body>
+</html>

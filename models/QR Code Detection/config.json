@@ -1,0 +1,8 @@
+{
+    "model_type": "XGBoost",
+    "ngram_range": [
+        2,
+        5
+    ],
+    "threshold": 0.5
+}
